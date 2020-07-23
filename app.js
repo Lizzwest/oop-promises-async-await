@@ -141,5 +141,32 @@ fetch("https://api.github.com/users/Lizzwest")
 
             lizz.intro();
         })
+
+
+        //promises
+
+        let isMomHappy = false;
+
+// Promise
+let willIGetNewPhone = new Promise(
+    function (resolve, reject) {
+        if (isMomHappy) {
+            let phone = {
+                brand: 'Samsung',
+                color: 'black'
+            };
+            resolve(phone); // fulfilled
+        } else {
+            let reason = new Error('mom is not happy');
+            reject(reason); // reject
+        }
+
+    }
+);
+
+//console.log(willIGetNewPhone);
+willIGetNewPhone.then(result=>{
+    console.log(result)
+})
     
 
