@@ -28,7 +28,7 @@ You can also add a catch(); (function) to advise you of any errors you encounter
 
 ## HTML Forms
 
-Using an HTML form tag allows users to input information into fields and then have them sent to a server to process the information. Each element on an HTML form requires a <label> and an  <input>. Within the input you need to include the *type* of info being taken in, the *name* you have given to this field and an *ID* to give you the ability to manipulate each field individually. You can also make fields required by adding *required* to the input field. You can do text, email ( must include an @), and age ( and many others) as well as use input fields such as a checkbox.
+Using an HTML form tag allows users to input information into fields and then have them sent to a server to process the information. Each element on an HTML form requires a label and an  input. Within the input you need to include the *type* of info being taken in, the *name* you have given to this field and an ID to give you the ability to manipulate each field individually. You can also make fields required by adding *required* to the input field. You can do text, email ( must include an @), and age ( and many others) as well as use input fields such as a checkbox.
 
 ```html
 <!DOCTYPE html>
@@ -88,7 +88,47 @@ newCat = new Cat("Siamese"); //this value will pass through the function and out
 
 ## Promises, Promises
 
-A promise, in javascript,
+A promise, in javascript, is essentially a way of saying new deal. You have the Promise, but it has not been fulfilled till the function has resolved. Promises have three possible states. Pending, (waiting for a resolution) fulfilled, ( resolved and approved) and rejected (resolved, but not approved).
+
+
+```javascript
+ Promise
+let willSheSayYes = new Promise(
+    function (resolve, reject){//the two options for the outcome of the promise 
+        if (isSheSmiling) {//*if* she says yes, give me her answer and ring.
+            let herAnswer = {
+                answer: 'Yes!',
+                ring: 'princess cut'
+            };
+            resolve(herAnswer); // fulfilled, she said yes
+        } else {
+            let reason = new Error("I am in love with someone else");// with a rejection comes the reason behind it
+            reject(reason); // rejected, thats got to sting
+        }
+
+    }
+);
+```
+
+## Async/await
+
+
+Last but not least, we have Async/await. Async is a keyword that can be placed in front of a function.  This guarantees the function returns a promise. Adding in await tells JavaScript to wait until the promise is resolved and results have been returned to proceed. Here is an example.
+
+```javascript
+async function seeSomePokemon() {
+    const charmanderEnd = "https://pokeapi.co/api/v2/pokemon/charmander";
+    const bulbasaurEnd = "https://pokeapi.co/api/v2/pokemon/bulbasaur";
+    
+    //we are telling the charmander call to wait for the fetch of info to resolve before proceeding with charmander output
+   let charmander = await fetch(bulbasaurEnd).then(res => res.json());
+   //this returns our results in a json format
+    
+    let bulbasaur = await fetch(bulbasaurEnd).then(response => response.json());
+
+}
+seeSomePokemon();
+```
 
 
 
